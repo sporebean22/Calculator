@@ -95,12 +95,16 @@
     </Compile>
     <Compile Include="CalculatorConsoleReturn.cs" />
     <Compile Include="CalculatorMethods.cs" />
+    <Compile Include="ICalculatorMethods.cs" />
+    <Compile Include="IMainWindowMethods.cs" />
+    <Compile Include="IWindow.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindowMethods.cs" />
     <Compile Include="NunitTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

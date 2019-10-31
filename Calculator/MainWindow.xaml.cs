@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Linq;
 
 namespace Calculator
 {
@@ -10,167 +8,58 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public double? InitialParameter { get; set; }
-        public char? Operator { get; set; }
-        public double? SecondaryParameter { get; set; }
         public double? Result { get; set; }
+
         public string TextBoxContent { get; set; }
-        public MainWindow()
-            => InitializeComponent();
-        private void Result_Text_Box(Object sender, RoutedEventArgs e)
-        {
-            ResultTextBox.AppendText(Result.ToString());
-        }
-        
+
+        private static readonly ICalculatorMethods _calculatorMethods = new CalculatorMethods();
+
+        private static readonly IMainWindowMethods _mainWindow = new MainWindowMethods();
+
+        public MainWindow() => InitializeComponent();
+
+        private void Result_Text_Box(object sender, RoutedEventArgs e)
+            =>  ResultTextBox.AppendText(Result.ToString());
+
         private void Click_One(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 1;
-                TextBox.AppendText("1");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 1;
-                TextBox.AppendText("1");
-            }
-        }
+            => _mainWindow.Click(TextBox,'1');
+
         private void Click_Two(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 2;
-                TextBox.AppendText("2");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 2;
-                TextBox.AppendText("2");
-            }
-        }
+            => _mainWindow.Click(TextBox, '2');
+
         private void Click_Three(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 3;
-                TextBox.AppendText("3");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 3;
-                TextBox.AppendText("3");
-            }
-        }
+            => _mainWindow.Click(TextBox, '3');
+
         private void Click_Four(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 4;
-                TextBox.AppendText("4");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 4;
-                TextBox.AppendText("4");
-            }
-        }
+            => _mainWindow.Click(TextBox, '4');
+
         private void Click_Five(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 5;
-                TextBox.AppendText("5");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 5;
-                TextBox.AppendText("5");
-            }
-        }
+            => _mainWindow.Click(TextBox, '5');
+
         private void Click_Six(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 6;
-                TextBox.AppendText("6");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 6;
-                TextBox.AppendText("6");
-            }
-        }
+            => _mainWindow.Click(TextBox, '6');
+
         private void Click_Seven(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 7;
-                TextBox.AppendText("7");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 7;
-                TextBox.AppendText("7");
-            }
-        }
+            => _mainWindow.Click(TextBox, '7');
+
         private void Click_Eight(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 7;
-                TextBox.AppendText("7");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 7;
-                TextBox.AppendText("7");
-            }
-        }
+            => _mainWindow.Click(TextBox, '8');
+
         private void Click_Nine(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 9;
-                TextBox.AppendText("9");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 9;
-                TextBox.AppendText("9");
-            }
-        }
+            => _mainWindow.Click(TextBox, '9');
+
         private void Click_Zero(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10);
-                TextBox.AppendText("0");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10);
-                TextBox.AppendText("0");
-            }
-        }
+            => _mainWindow.Click(TextBox, '0');
+
         private void Click_Dot(object sender, RoutedEventArgs e)
-        {
-            if (Operator == ' ')
-            {
-                InitialParameter = (InitialParameter * 10) + 1;
-                TextBox.AppendText("1");
-            }
-            else
-            {
-                SecondaryParameter = (SecondaryParameter * 10) + 1;
-                TextBox.AppendText("1");
-            }
-        }
+            => _mainWindow.Click(TextBox, '.');
+
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
-            var calculation = new CalculatorMethods(InitialParameter, Operator, SecondaryParameter);
+            var calculation = new CalculatorMethods(_calculatorMethods.InitialParameter, _calculatorMethods.Operator, _calculatorMethods.SecondaryParameter);
             Result = calculation.Operation();
             TextBox.MaxLength = 10;
-            TextBox.Text += "=" + InitialParameter;
+            TextBox.Text += "=" + _calculatorMethods.InitialParameter;
 
             TextBox.AppendText(Result.ToString());
         }
@@ -179,38 +68,37 @@ namespace Calculator
         private void Divide_Click(object sender, RoutedEventArgs e)
         {
             TextBox.Text = TextBoxContent;
-            Operator = '/';
-            var StrOperator = Operator.ToString();
+            _calculatorMethods.Operator = '/';
+            var StrOperator = _calculatorMethods.Operator.ToString();
             if (StrOperator.Contains(TextBoxContent))
                 TextBox.AppendText(TextBoxContent.Replace("×-+", " ÷ "));
         }
         private void Multiply_Click(object sender, RoutedEventArgs e)
         {
-            Operator = '*';
+            _calculatorMethods.Operator = '*';
             TextBox.AppendText("×");
         }
+
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
-            Operator = '-';
+            _calculatorMethods.Operator = '-';
             TextBox.Text += '-';
         }
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
-            Operator = '+';
+            _calculatorMethods.Operator = '+';
             TextBox.AppendText("+");
         }
 
         private void ClearAll_Click(object sender, RoutedEventArgs e)
         {
-            InitialParameter = null;
-            Operator = null;
-            SecondaryParameter = null;
+            _calculatorMethods.InitialParameter = null;
+            _calculatorMethods.Operator = null;
+            _calculatorMethods.SecondaryParameter = null;
             TextBox.Text = null;
         }
 
         private void ClearCurrent_Click(object sender, RoutedEventArgs e)
-        {
-            TextBox.Text = null;
-        }
+            =>  TextBox.Text = null;
     }
 }
