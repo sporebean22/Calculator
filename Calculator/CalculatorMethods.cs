@@ -7,9 +7,9 @@ namespace Calculator
     public class CalculatorMethods : ICalculatorMethods
     {
         #region Propeties
-        public double? InitialParameter { get; set; }
-        public char? Operator { get; set; }
-        public double? SecondaryParameter { get; set; }
+        public double InitialParameter { get; set; }
+        public char Operator { get; set; }
+        public double SecondaryParameter { get; set; }
         public static ArgumentException argumentException { get; } = new System.ArgumentException($"The Parameters cannot be null");
 
         public double? operation;
@@ -22,12 +22,12 @@ namespace Calculator
         /// <param name="initialParameter"></param>
         /// <param name="moperator"></param>
         /// <param name="secondaryParameter"></param>
-        public CalculatorMethods (double? initialParameter, char? moperator, double? secondaryParameter)
+        public CalculatorMethods (double initialParameter, char moperator, double secondaryParameter)
         {
             InitialParameter = initialParameter;
             Operator = moperator;
             SecondaryParameter = secondaryParameter;
-            if ((initialParameter == null) || (moperator == null) || (secondaryParameter == null))
+            if ((initialParameter == double.NaN) || (moperator == ' ') || (secondaryParameter == double.NaN))
                 throw argumentException;
         }
 
@@ -47,6 +47,7 @@ namespace Calculator
                 return operation = InitialParameter / SecondaryParameter;
                 return operation;
         }
+
         #endregion Methods
     }
 }

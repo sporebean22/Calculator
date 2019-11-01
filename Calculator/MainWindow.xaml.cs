@@ -55,16 +55,11 @@ namespace Calculator
             => _mainWindow.Click(TextBox, '.');
 
         private void Equals_Click(object sender, RoutedEventArgs e)
-        {
-            var calculation = new CalculatorMethods(_calculatorMethods.InitialParameter, _calculatorMethods.Operator, _calculatorMethods.SecondaryParameter);
-            Result = calculation.Operation();
-            TextBox.MaxLength = 10;
-            TextBox.Text += "=" + _calculatorMethods.InitialParameter;
+        => _mainWindow.EqualsClick(TextBox, _calculatorMethods);
 
-            TextBox.AppendText(Result.ToString());
-        }
         private void RemoveCurrent_Click(object sender, RoutedEventArgs e)
             => TextBox.Text.Remove(1, 1);
+
         private void Divide_Click(object sender, RoutedEventArgs e)
         {
             TextBox.Text = TextBoxContent;
@@ -92,9 +87,9 @@ namespace Calculator
 
         private void ClearAll_Click(object sender, RoutedEventArgs e)
         {
-            _calculatorMethods.InitialParameter = null;
-            _calculatorMethods.Operator = null;
-            _calculatorMethods.SecondaryParameter = null;
+            _calculatorMethods.InitialParameter = double.NaN;
+            _calculatorMethods.Operator = ' ';
+            _calculatorMethods.SecondaryParameter = double.NaN;
             TextBox.Text = null;
         }
 

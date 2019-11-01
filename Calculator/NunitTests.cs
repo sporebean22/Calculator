@@ -13,7 +13,7 @@ namespace Calculator
         [TestCase(3, '*', 4, ExpectedResult = 12)]
         [TestCase(5, '/', 100, ExpectedResult = 0.05)]
         [TestCase(2, '/', 10, ExpectedResult = 0.2)]
-        public double? Tests(double? InitialParameter, char? Operator, double? SecondaryParameter)
+        public double? Tests(double InitialParameter, char Operator, double SecondaryParameter)
         {
             var MethodTest = new CalculatorMethods(InitialParameter, Operator, SecondaryParameter);
             MethodTest.Operation();

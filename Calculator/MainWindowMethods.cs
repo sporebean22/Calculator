@@ -2,7 +2,7 @@
 
 namespace Calculator
 {
-    class MainWindowMethods : MainWindow, IMainWindowMethods
+    class MainWindowMethods : IMainWindowMethods
   {
     private static readonly ICalculatorMethods _calculatorMethods = new CalculatorMethods();
     public void Click(TextBox textBox, char character)
@@ -23,9 +23,13 @@ namespace Calculator
       }
     }
 
-        public double EqualsClick()
+        public void EqualsClick(TextBox textBox, ICalculatorMethods parameters)
         {
-            return 23;
+            
+            var result = parameters.Operation();
+            textBox.MaxLength = 10;
+            textBox.Text += "=" + _calculatorMethods.InitialParameter;
+            textBox.AppendText(result.ToString());
         }
 
 
