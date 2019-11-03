@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Calculator" Height="280" MinHeight="275" MaxHeight="275" Width="275" MinWidth = "275" MaxWidth="275" Background="#FF212121" Foreground="White">
-    <Grid>
+        Title="Calculator" Height="309" MinHeight="275" MaxHeight="400" Width="274" MinWidth = "275" MaxWidth="275" Background="#FF212121" Foreground="White">
+    <Grid Margin="0,0,-8,0">
         <!--Columns-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width= "20" />
+            <ColumnDefinition Width= "Auto" />
             <ColumnDefinition Width= "Auto" />
             <ColumnDefinition Width= "Auto" />
             <ColumnDefinition Width= "Auto" />
@@ -20,6 +21,7 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -56,5 +58,9 @@
         <Button x:Name="Minus" Content="-" Grid.Column="4" Grid.Row="5" Width="50" Margin="2" Background="#FF212121" Foreground="White" Click="Minus_Click"/>
         <Button x:Name="Plus" Content="+" Grid.Column="4" Grid.Row="6" Width="50" Margin="2" Background="#FF212121" Foreground="White" Click="Plus_Click"/>
         <Button x:Name="Equals" Content="=" Grid.Column="4" Grid.Row="7" Width="50" Margin="2" Background="#FF212121" Foreground="White" Click="Equals_Click"/>
+        <Button x:Name="Brackets" Content="( )" Grid.Column="1" Grid.Row="10" Width="50" Margin="2" Background="#FF212121" Foreground="White"/>
+        <Button x:Name="PowerOf" Content="xʸ" Grid.Column="2" Grid.Row="10"  Width="50" Margin="2" Background="#FF212121" Foreground="White"/>
+        <Button x:Name="RootOf" Content="ʸ√x" Grid.Column="3" Grid.Row="10"  Width="50" Margin="2" Background="#FF212121" Foreground="White"/>
+        <Button x:Name="Powerof10" Content="10ˣ" Grid.Column="4" Grid.Row="10"  Width="50" Margin="2" Background="#FF212121" Foreground="White"/>
     </Grid>
 </Window>

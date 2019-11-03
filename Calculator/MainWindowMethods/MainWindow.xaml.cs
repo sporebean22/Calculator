@@ -9,7 +9,6 @@ namespace Calculator
     public partial class MainWindow : Window
     {
         public double? Result { get; set; }
-
         public string TextBoxContent { get; set; }
 
         private static readonly ICalculatorMethods _calculatorMethods = new CalculatorMethods();
@@ -22,34 +21,34 @@ namespace Calculator
             =>  ResultTextBox.AppendText(Result.ToString());
 
         private void Click_One(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox,'1');
+            => _mainWindow.NumberClick(TextBox,1);
 
         private void Click_Two(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '2');
+            => _mainWindow.NumberClick(TextBox,2);
 
         private void Click_Three(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '3');
+            => _mainWindow.NumberClick(TextBox,3);
 
         private void Click_Four(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '4');
+            => _mainWindow.NumberClick(TextBox, 4);
 
         private void Click_Five(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '5');
+            => _mainWindow.NumberClick(TextBox, 5);
 
         private void Click_Six(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '6');
+            => _mainWindow.NumberClick(TextBox, 6);
 
         private void Click_Seven(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '7');
+            => _mainWindow.NumberClick(TextBox, 7);
 
         private void Click_Eight(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '8');
+            => _mainWindow.NumberClick(TextBox, 8);
 
         private void Click_Nine(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '9');
+            => _mainWindow.NumberClick(TextBox, 9);
 
         private void Click_Zero(object sender, RoutedEventArgs e)
-            => _mainWindow.Click(TextBox, '0');
+            => _mainWindow.NumberClick(TextBox, 0);
 
         private void Click_Dot(object sender, RoutedEventArgs e)
             => _mainWindow.Click(TextBox, '.');
