@@ -145,6 +145,7 @@
     <Resource Include="MainWindowMethods\icon2.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CalculatorExceptions\" />
     <Folder Include="Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

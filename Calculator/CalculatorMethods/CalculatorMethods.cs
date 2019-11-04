@@ -62,9 +62,9 @@ public class CalculatorMethods : ICalculatorMethods
                 return Square(Divide(1, InitialParameter), SecondaryParameter);
             else if (Operator == OperatorValidset[6])
                 return Multiply(SecondaryParameter, 10);
-            else return double.NaN;
+            else 
+                throw CalculatorNullArgumentException;
         }
-
     }
 
     #endregion Methods
