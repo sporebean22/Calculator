@@ -11,7 +11,7 @@ namespace Calculator
         public double? Result { get; set; }
         public string TextBoxContent { get; set; }
 
-        private static readonly ICalculatorMethods _calculatorMethods = new CalculatorMethods();
+        public static ICalculatorMethods _calculatorMethods = new CalculatorMethods();
 
         private static readonly IMainWindowMethods _mainWindow = new MainWindowMethods();
 

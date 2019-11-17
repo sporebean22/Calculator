@@ -5,12 +5,12 @@ namespace Calculator
 public class CalculatorMethods : ICalculatorMethods
 {
     #region Propeties
-    public char[] OperatorValidset { get; } = { '+', '-', '×', '÷', '^','√','ˣ'};
+    public char[] OperatorValidset { get; } = { '+', '-', '×', '÷', '^','√','ˣ', ' '};
     public double InitialParameter { get; set; }
     public char Operator { get; set; }
     public double SecondaryParameter { get; set; }
     public static ArgumentException CalculatorNullArgumentException { get; } = new System.ArgumentException($"The Parameters cannot be null");
-
+    
     public double? operation;
 
     #endregion Propeties
@@ -50,17 +50,17 @@ public class CalculatorMethods : ICalculatorMethods
         {
             if (Operator == OperatorValidset[0])
                 return Sum(InitialParameter, SecondaryParameter);
-            else if (Operator == OperatorValidset[1])
+            else if (Operator.Equals(OperatorValidset[1]))
                 return Subtract(InitialParameter, SecondaryParameter);
-            else if (Operator == OperatorValidset[2])
+            else if (Operator.Equals(OperatorValidset[2]))
                 return Multiply(InitialParameter, SecondaryParameter);
-            else if (Operator == OperatorValidset[3])
+            else if (Operator.Equals(OperatorValidset[3]))
                 return Divide(InitialParameter, SecondaryParameter);
-            else if (Operator == OperatorValidset[4])
+            else if (Operator.Equals(OperatorValidset[4]))
                 return Square(InitialParameter, SecondaryParameter);
-            else if (Operator == OperatorValidset[5])
+            else if (Operator.Equals(OperatorValidset[5]))
                 return Square(Divide(1, InitialParameter), SecondaryParameter);
-            else if (Operator == OperatorValidset[6])
+            else if (Operator.Equals(OperatorValidset[6]))
                 return Multiply(SecondaryParameter, 10);
             else 
                 throw CalculatorNullArgumentException;
