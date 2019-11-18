@@ -105,14 +105,13 @@
     <Compile Include="CalculatorMethods\CalculatorMethods.cs" />
     <Compile Include="CalculatorMethods\ICalculatorMethods.cs" />
     <Compile Include="MainWindowMethods\IMainWindowMethods.cs" />
-    <Compile Include="MainWindowMethods\IWindow.cs" />
+    <Compile Include="MainWindowMethods\MainWindowMethods.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowMethods.cs" />
     <Compile Include="Tests\NunitTests.cs" />
     <Compile Include="CalculatorMethods\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
