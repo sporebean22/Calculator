@@ -8,7 +8,7 @@ namespace Calculator
         {
             CalculatorConsoleReturn.RequestInput();
             var math = new CalculatorMethods(CalculatorConsoleReturn.InitialParameter, CalculatorConsoleReturn.Operator, CalculatorConsoleReturn.SecondaryParameter);
-            math.Operation();
+            //math.Operation();
             CalculatorConsoleReturn.MathConsoleReturn(math.operation);
         }
     }

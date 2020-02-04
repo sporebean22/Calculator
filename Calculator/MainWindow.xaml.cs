@@ -70,7 +70,7 @@ namespace Calculator
         private void Multiply_Click(object sender, RoutedEventArgs e)
         {
             _calculatorMethods.Operator = '*';
-            TextBox.AppendText("×");
+            TextBox.AppendText("*");
         }
 
         private void Minus_Click(object sender, RoutedEventArgs e)

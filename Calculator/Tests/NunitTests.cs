@@ -9,7 +9,7 @@ namespace Calculator
     public class NunitTests
     {
         private ICalculatorMethods calculatorMethods;
-
+        /*
         [TestCase(1,'-',4, ExpectedResult = -3)]
         [TestCase(2, '+', 5, ExpectedResult = 7)]
         [TestCase(3, '*', 4, ExpectedResult = 12)]
@@ -27,6 +27,6 @@ namespace Calculator
         {
             //var MethodTest = new CalculatorMethods(InitialParameter, Operator, SecondaryParameter);
             Assert.That(() => calculatorMethods.Operation(), Throws.TypeOf<ArgumentException>());
-        }
+        }*/
     }
 }

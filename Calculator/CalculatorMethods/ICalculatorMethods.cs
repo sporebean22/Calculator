@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Controls;
 
 namespace Calculator
 {
@@ -7,7 +8,7 @@ namespace Calculator
         double InitialParameter { get; set; }
         char Operator { get; set; }
         double SecondaryParameter { get; set; }
-        double Operation();
+        double Operation(TextBox textBox);
         char[] OperatorValidset { get; }
     }
 }

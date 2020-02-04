@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Windows.Controls;
 
 namespace Calculator
 {
@@ -46,9 +48,17 @@ public class CalculatorMethods : ICalculatorMethods
     private double Square(double parameter, double power)
         =>  Math.Pow(parameter, power);
 
-        public double Operation()
+        public double eval(string expression)
         {
-            if (Operator == OperatorValidset[0])
+            var table = new DataTable();
+            return Convert.ToDouble(table.Compute(expression, String.Empty));
+        }
+
+        public double Operation(TextBox textBox)
+        {
+            return eval(textBox.Text);
+
+            /*if (Operator == OperatorValidset[0])
                 return Sum(InitialParameter, SecondaryParameter);
             else if (Operator.Equals(OperatorValidset[1]))
                 return Subtract(InitialParameter, SecondaryParameter);
@@ -63,7 +73,7 @@ public class CalculatorMethods : ICalculatorMethods
             else if (Operator.Equals(OperatorValidset[6]))
                 return Multiply(SecondaryParameter, 10);
             else 
-                throw CalculatorNullArgumentException;
+                throw CalculatorNullArgumentException;*/
         }
     }
 

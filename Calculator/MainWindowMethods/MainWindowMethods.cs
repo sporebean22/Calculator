@@ -38,7 +38,7 @@ namespace Calculator
 
         public void EqualsClick(TextBox textBox, ICalculatorMethods parameters)
         {
-            var result = parameters.Operation();
+            var result = parameters.Operation(textBox);
             textBox.MaxLength = 10;
             textBox.Text = " ";
             textBox.AppendText(result.ToString());
