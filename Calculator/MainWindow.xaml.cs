@@ -11,6 +11,8 @@ namespace Calculator
         public double? Result { get; set; }
         public string TextBoxContent { get; set; }
 
+        public string Expression { get; set; }
+
         public static ICalculatorMethods _calculatorMethods = new CalculatorMethods();
 
         private static readonly IMainWindowMethods _mainWindow = new MainWindowMethods();
@@ -76,7 +78,7 @@ namespace Calculator
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
             _calculatorMethods.Operator = '-';
-            TextBox.Text += '-';
+            TextBox.AppendText("-");
         }
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
