@@ -11,7 +11,7 @@ namespace Calculator
         public double? Result { get; set; }
         public string TextBoxContent { get; set; }
 
-        public string Expression { get; set; }
+        public Expression Expression { get; set; } = new Expression();
 
         public static ICalculatorMethods _calculatorMethods = new CalculatorMethods();
 
@@ -56,18 +56,15 @@ namespace Calculator
             => _mainWindow.Click(TextBox, '.');
 
         private void Equals_Click(object sender, RoutedEventArgs e)
-        => _mainWindow.EqualsClick(TextBox, _calculatorMethods);
+            => _mainWindow.EqualsClick(TextBox, _calculatorMethods);
 
         private void RemoveCurrent_Click(object sender, RoutedEventArgs e)
             => TextBox.Text.Remove(1, 1);
 
         private void Divide_Click(object sender, RoutedEventArgs e)
         {
-            TextBox.Text = TextBoxContent;
             _calculatorMethods.Operator = '/';
-            var StrOperator = _calculatorMethods.Operator.ToString();
-            if (StrOperator.Contains(TextBoxContent))
-                TextBox.AppendText(TextBoxContent.Replace("×-+", " ÷ "));
+            TextBox.AppendText("/");
         }
         private void Multiply_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +77,7 @@ namespace Calculator
             _calculatorMethods.Operator = '-';
             TextBox.AppendText("-");
         }
+
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
             _calculatorMethods.Operator = '+';
@@ -96,5 +94,15 @@ namespace Calculator
 
         private void ClearCurrent_Click(object sender, RoutedEventArgs e)
             =>  TextBox.Text = null;
+
+        private void AddBrackets(object sender, RoutedEventArgs e)
+        {
+            if (TextBox.Text.Contains("("))
+                TextBox.AppendText(")");
+            else if (TextBox.Text.Contains("()"))
+                TextBox.AppendText("(");
+            else
+                TextBox.AppendText("(");
+        }
     }
 }

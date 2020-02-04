@@ -1,5 +1,4 @@
 ﻿using TextBox = System.Windows.Controls.TextBox;
-using FluentValidation;
 
 namespace Calculator
 {
